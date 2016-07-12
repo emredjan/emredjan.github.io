@@ -64,6 +64,7 @@ share_reddit: false
 share_stumbleupon: false
 share_hackernews: false
 
+<<<<<<< HEAD
 text:
   pagination:
     newer: 'Newer'
@@ -96,6 +97,12 @@ text:
       error:    'Error!'
   thanks: 'Thanks for contacting us. We will reply as soon as possible.'
   og_locale: 'en_US'
+=======
+# Conversion / Build settings 
+markdown:    kramdown
+# This is how you put pygments config in jekyll 2.0 instead of pygments: true
+highlighter: rouge 
+>>>>>>> origin/master
 
 # Build settings
 markdown:     kramdown
