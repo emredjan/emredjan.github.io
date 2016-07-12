@@ -17,15 +17,68 @@ Nunc nec aliquam tellus. Etiam faucibus magna nibh, ut fermentum velit consectet
 ## Dugem
 Nullam vehicula iaculis tortor, in cursus enim auctor vitae. Duis semper pulvinar justo, at vestibulum dolor. Cras fermentum nibh quis nisl imperdiet ornare. Sed nisi nunc, dictum sit amet gravida in, finibus rhoncus orci. Donec scelerisque commodo turpis ac venenatis.
 
-{% highlight js %}
+{% highlight py %}
 
-function trigger_alert(){
-  alert("Lorem Ipsum dolor sit amet");
-}
+# this script is used on windows to wrap shortcuts so that they are executed within an environment
+#   It only sets the appropriate prefix PATH entries - it does not actually activate environments
 
-trigger_alert();
+import os
+import sys
+import subprocess
+from os.path import join
+
+from menuinst.knownfolders import FOLDERID, get_folder_path, PathNotFoundException
+
+# call as: python cwp.py PREFIX ARGs...
+
+prefix = sys.argv[1]
+args = sys.argv[2:]
+
+env = os.environ.copy()
+env['PATH'] = os.path.pathsep.join([
+        prefix,
+        join(prefix, "Scripts"),
+        join(prefix, "Library", "bin"),
+        env['PATH'],
+])
+
+try:
+    #documents_folder = get_folder_path(FOLDERID.Documents)
+    documents_folder = "D:\\GoogleDrive\\Development\\"
+except PathNotFoundException:
+    documents_folder = get_folder_path(FOLDERID.PublicDocuments)
+os.chdir(documents_folder)
+subprocess.call(args, env=env)
 
 {% endhighlight %}
+
+{% highlight r %}
+
+# Read in the data
+stevens = read.csv("stevens.csv")
+str(stevens)
+
+# Split the data
+library(caTools)
+set.seed(3000)
+spl = sample.split(stevens$Reverse, SplitRatio = 0.7)
+Train = subset(stevens, spl==TRUE)
+Test = subset(stevens, spl==FALSE)
+
+# Install rpart library
+
+library(rpart)
+
+library(rpart.plot)
+
+# CART model
+StevensTree = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, method="class", minbucket=25)
+
+prp(StevensTree)
+
+{% endhighlight %}
+
+
 
 ### Golem
 Quisque sodales euismod nibh, gravida venenatis nibh dignissim eget. Morbi gravida enim vel lectus aliquet aliquet.

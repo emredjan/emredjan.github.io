@@ -1,14 +1,13 @@
-# # # # # # # #
-#   K i k o   #
-# # # # # # # #
-
 # Basic
-name:               "Kiko"
-
-# URL
-#baseurl:            "/Kiko"
-baseurl:            "" #For Root Domain
-permalink:          /:year/:month/:day/:title.html
+name:               "emredjan"
+title:              A Journey in Data Science
+email:              emredjan@gmail.com
+author:             Emre Can
+description:        "My journey to become a data scientist"
+baseurl:            ""
+url:                "http://emredjan.github.io"
+date_format:        "%b %-d, %Y"
+permalink:          pretty
 
 # Markdown
 # markdown:           rdiscount
@@ -16,9 +15,11 @@ permalink:          /:year/:month/:day/:title.html
 # Navigation
 nav:
   - name:           "About"
-    href:           "//gfjaru.github.io/Kiko/about"
-  - name:           "Download"
-    href:           "//github.com/gfjaru/Kiko/releases"
+    href:           "/about"
+  - name:           "LinkedIn"
+    href:           "https://nl.linkedin.com/in/emrecan"
+  - name:           "CV"
+    href:           "/about"
 
 # Sass
 sass:
