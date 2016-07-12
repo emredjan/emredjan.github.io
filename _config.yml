@@ -6,8 +6,8 @@
 name:               "Kiko"
 
 # URL
-baseurl:            "/Kiko"
-#baseurl:            "" #For Root Domain
+#baseurl:            "/Kiko"
+baseurl:            "" #For Root Domain
 permalink:          /:year/:month/:day/:title.html
 
 # Markdown
