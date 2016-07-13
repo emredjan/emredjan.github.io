@@ -17,6 +17,7 @@ I'll write about my personal experiences, interesting analyses and developments 
 You'll occasionally find programming / scripting examples in R, Python, SQL or maybe C# (as I try to get better)
 
 You can check out my [LinkedIn](https://nl.linkedin.com/in/emrecan) page for detailed qualifications, 
+my projects on [GitHub](https://github.com/emredjan/)
 and follow me on [Twitter](https://twitter.com/emredjan).
 
 _Emre Can_
