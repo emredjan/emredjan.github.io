@@ -4,7 +4,8 @@ email:       emredjan@gmail.com
 author:      Emre Can
 description: "A data science journal by Emre Can."
 baseurl:     ""
-url:         "http://192.168.178.241:4000/"
+#url:         "http://192.168.178.241:4000/"
+url:         "http://emredjan.github.io/"
 date_format: "%b %-d, %Y"
 
 # Google services
