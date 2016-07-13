@@ -25,11 +25,18 @@
 
   margin-top: .75rem;
   text-align: center;
+  font-size: 12px;
 }
 
 .post-footer .avatar {
   margin: 2rem 0;
   width: 100px;
+  border-radius: 50%;
+}
+
+.avatar2 {
+  margin: 2rem 0;
+  width: 150px;
   border-radius: 50%;
 }
 

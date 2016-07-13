@@ -1,20 +1,26 @@
 ---
 layout: page
-title: About Pixyll
+title: About
 permalink: /about/
 tags: about
 ---
 
-This Jekyll theme was crafted with <3 by [John Otander](http://johnotander.com)
-([@4lpine](https://twitter.com/4lpine)).
+<img src="{{ site.baseurl }}/images/me.jpg" class="avatar2">
 
-Checkout the [Github repository](https://github.com/johnotander/pixyll) to download it,
-request a feature, report a bug, or contribute. It's free, and open source
-([MIT](http://opensource.org/licenses/MIT)).
+I am Emre, a part-time [MBA Big Data & Business Analytics](http://mbabigdata.nl) student at UvA and a full-time data & reporting specialist.
+I decided to start this blog as I believe it's the best way to share my journey as I learn and try to become a better data scientist.
 
-Thanks to the following:
+In the spring of 2016, I realized my passion and my career lies in data & analytics and I needed to take a step further. 
+I hope you will also find some insights and have fun reading about it.
 
-* [BASSCSS](http://basscss.com)
-* [Jekyll](http://jekyllrb.com)
-* [Refills](http://refills.bourbon.io/)
-* [Type Scale](http://type-scale.com/)
+I'll write about my personal experiences, interesting analyses and developments in the field.
+You'll occasionally find programming / scripting examples in R, Python, SQL or maybe C# (as I try to get better)
+
+You can check out my [LinkedIn](https://nl.linkedin.com/in/emrecan) page for detailed qualifications, 
+and follow me on [Twitter](https://twitter.com/emredjan).
+
+_Emre Can_
+
+
+
+

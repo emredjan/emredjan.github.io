@@ -2,7 +2,7 @@
 title:       A Journey in Data
 email:       emredjan@gmail.com
 author:      Emre Can
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+description: "A data science journal by Emre Can."
 baseurl:     ""
 url:         "http://192.168.178.241:4000/"
 date_format: "%b %-d, %Y"
@@ -18,13 +18,13 @@ bing_verification:
 
 # Optional features
 animated:             true
-show_related_posts:   true
+show_related_posts:   false
 show_post_footers:    true
 show_social_icons:    true
 ajaxify_contact_form: true
-enable_mathjax: false
-extended_fonts: true
-enable_anchorjs: false
+enable_mathjax:       false
+extended_fonts:       false
+enable_anchorjs:      false
 
 # Disqus post comments
 # (leave blank to disable Disqus)
@@ -37,14 +37,14 @@ facebook_appid:
 facebook_comments_number: 10
 
 # Social icons
-github_username: emredjan
+github_username:      emredjan
 bitbucket_username:
 stackoverflow_id:
-twitter_username: emredjan
+twitter_username:     emredjan
 skype_username:
 steam_nickname:
 google_plus_id:
-linkedin_username: emrecan
+linkedin_username:    emrecan
 angellist_username:
 medium_id:
 bitcoin_url:
@@ -69,7 +69,7 @@ text:
     newer: 'Newer'
     older: 'Older'
   share_buttons:
-    text:         'Share this post!'
+    text:         'Share this post:'
     facebook:     'Share on Facebook'
     twitter:      'Share on Twitter'
     googleplus:   'Share on Google+'
@@ -89,7 +89,7 @@ text:
     email:    'Email Address'
     content:  'What would you like to say?'
     subject:  'New submission!'
-    submit:   'Say Hello'
+    submit:   'Send Message'
     ajax:
       sending:  'sending..'
       sent:     'Message sent!'
