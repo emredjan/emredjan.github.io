@@ -40,7 +40,7 @@ facebook_comments_number: 10
 # Social icons
 github_username:      emredjan
 bitbucket_username:
-stackoverflow_id:
+stackoverflow_id:     emredjan
 twitter_username:     emredjan
 skype_username:
 steam_nickname:
@@ -63,7 +63,7 @@ share_digg: false
 share_tumblr: false
 share_reddit: false
 share_stumbleupon: false
-share_hackernews: false
+share_hackernews: true
 
 text:
   pagination:
@@ -95,7 +95,7 @@ text:
       sending:  'sending..'
       sent:     'Message sent!'
       error:    'Error!'
-  thanks: 'Thanks for contacting us. We will reply as soon as possible.'
+  thanks: 'Thanks for contacting me. I will reply as soon as possible.'
   og_locale: 'en_US'
 
 # Build settings
