@@ -10,7 +10,7 @@ published:  true
 
 One of the not-much-advertised featues of the new [Creators update for Windows 10](https://www.microsoft.com/en-us/windows/upcoming-features) is the support for Ubuntu 16.04 in Windows Subsytem for Linux (WSL). The catch is, if you installed the WSL prior to upgrading Windows, it will not upgrade it for you, and leave it as Ubuntu 14.04. 
 
-If you want the latest LTS Ubuntu, one option is delete the WSL and reinstall using:
+If you want the latest LTS Ubuntu, one option is delete the WSL and reinstall using (in powershell):
 
 {% highlight shell %}
 
@@ -19,7 +19,7 @@ lxrun /install
 
 {% endhighlight %}
 
-This, however will delete all your linux settings / files under WSL, which may be an inconvenience. A less destructive option is to just use:
+This, however will delete all your linux settings / files under WSL, which may be an inconvenience. A less destructive option is to just use (in bash):
 
 {% highlight cmd %}
 
