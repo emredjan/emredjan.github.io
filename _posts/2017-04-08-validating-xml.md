@@ -133,7 +133,7 @@ $ python validation.py <path_to_xml_file> <path_to_xsd_file>
 
 Any errors will be written to 'error_syntax.log' and 'error_schema.log' files (in the same directory as your .py file) with timestamps, line number and detailed explanation of validation errors. You can check and correct your XML documents before validating using this script again.
 
-`lxml` is quite an extensive and flexible package to handle and process XML and related files. Check their [documentation])(http://lxml.de/3.0/tutorial.html) for tutorials, references and more information.
+`lxml` is quite an extensive and flexible package to handle and process XML and related files. Check the sources below for tutorials, references and more information.
 
 ### Sources
 
