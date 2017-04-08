@@ -2,7 +2,7 @@
 layout:     post
 title:      Upgrade bash in Windows 10
 date:       2017-04-06 20:20:00
-summary:    Easily upgrading the bash shell in Windows 10 Creators Update without reinstalling
+summary:    Easily upgrade the bash shell in Windows 10 Creators Update without reinstalling
 categories: blog
 tags:       windows bash WSL
 published:  true
