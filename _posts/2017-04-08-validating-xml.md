@@ -102,7 +102,7 @@ except:
 
 ### Validating with Schema
 
-At the final step we can validate our XML document against the XSD schema using `assertValid` method from `etree.XMLSchema`. This method will get our parsed XML file (in variable `doc` above) and try to validate is using the schema definitions. It throws an `etree.DocumentInvalid` exception with an `error_log` object as above. We can also write this to a file to check any invalid tags or values.
+At the final step we can validate our XML document against the XSD schema using `assertValid` method from `etree.XMLSchema`. This method will get our parsed XML file (in variable `doc` above) and try to validate it using the schema definitions. It throws an `etree.DocumentInvalid` exception with an `error_log` object as above. We can also write this to a file to check any invalid tags or values.
 
 {% highlight python %}
 
@@ -123,7 +123,7 @@ except:
 
 {% endhighlight %}
 
-You can save this script (i.e. as 'validation.py')and use it with:
+You can save this script (i.e. as 'validation.py') and use it with:
 
 {% highlight shell %}
 
