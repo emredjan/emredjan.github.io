@@ -83,7 +83,7 @@ try:
     doc = etree.parse(StringIO(xml_to_check))
     print('XML well formed, syntax ok.')
 
-# check for file IO error    
+# check for file IO error 
 except IOError:
     print('Invalid File')
 
