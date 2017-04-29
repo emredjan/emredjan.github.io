@@ -83,7 +83,7 @@ try:
     doc = etree.parse(StringIO(xml_to_check))
     print('XML well formed, syntax ok.')
 
-# check for file IO error 
+# check for file IO error
 except IOError:
     print('Invalid File')
 
@@ -93,7 +93,7 @@ except etree.XMLSyntaxError as err:
     with open('error_syntax.log', 'w') as error_log_file:
         error_log_file.write(str(err.error_log))
     quit()
-    
+
 except:
     print('Unknown error, exiting.')
     quit()
@@ -110,13 +110,13 @@ At the final step we can validate our XML document against the XSD schema using 
 try:
     xmlschema.assertValid(doc)
     print('XML valid, schema validation ok.')
-    
+
 except etree.DocumentInvalid as err:
     print('Schema validation error, see error_schema.log')
     with open('error_schema.log', 'w') as error_log_file:
         error_log_file.write(str(err.error_log))
     quit()
-    
+
 except:
     print('Unknown error, exiting.')
     quit()
