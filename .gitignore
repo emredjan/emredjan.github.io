@@ -9,5 +9,5 @@ _config.gh-pages.yml
 Gemfile.lock
 desktop.ini
 Thumbs.db
-images/source
+images/source/
 *.psd
