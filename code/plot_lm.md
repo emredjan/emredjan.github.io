@@ -18,10 +18,10 @@ from scipy.stats import zscore
 from scipy.stats import rankdata
 
 plt.style.use('seaborn') # pretty matplotlib plots
-plt.rc('font', size=15)
-plt.rc('figure', titlesize=24)
-plt.rc('axes', labelsize=16)
-plt.rc('axes', titlesize=24)
+plt.rc('font', size=14)
+plt.rc('figure', titlesize=18)
+plt.rc('axes', labelsize=15)
+plt.rc('axes', titlesize=18)
 ```
 
 Loading the data, and getting rid of `NA`s:
@@ -93,8 +93,8 @@ This one can be easily plotted using seaborn `residplot` with fitted values as `
 
 ```python
 plot_lm_1 = plt.figure(1)
-plot_lm_1.set_figheight(12)
-plot_lm_1.set_figwidth(16)
+plot_lm_1.set_figheight(8)
+plot_lm_1.set_figwidth(12)
 
 plot_lm_1.axes[0] = sns.residplot(y_pred, 'mpg', data=auto, 
                           lowess=True, 
@@ -131,8 +131,8 @@ For this, I'm using `ProbPlot` and its `qqplot` method from statsmodels graphics
 QQ = ProbPlot(model_norm_residuals)
 plot_lm_2 = QQ.qqplot(line='45', alpha=0.5, color='#4C72B0', lw=1)
 
-plot_lm_2.set_figheight(12)
-plot_lm_2.set_figwidth(16)
+plot_lm_2.set_figheight(8)
+plot_lm_2.set_figwidth(12)
 
 plot_lm_2.axes[0].set_title('Normal Q-Q')
 plot_lm_2.axes[0].set_xlabel('Theoretical Quantiles')
@@ -161,8 +161,8 @@ It's just a scatter plot of absolute squared normalized residuals and fitted val
 
 ```python
 plot_lm_3 = plt.figure(3)
-plot_lm_3.set_figheight(12)
-plot_lm_3.set_figwidth(16)
+plot_lm_3.set_figheight(8)
+plot_lm_3.set_figwidth(12)
 
 plt.scatter(y_pred, model_norm_residuals_abs_sqrt, alpha=0.5)
 sns.regplot(y_pred, model_norm_residuals_abs_sqrt, 
@@ -198,8 +198,8 @@ statsmodels has a built-in leverage plot for linear regression, but again, it's 
 
 ```python
 plot_lm_4 = plt.figure(4)
-plot_lm_4.set_figheight(12)
-plot_lm_4.set_figwidth(16)
+plot_lm_4.set_figheight(8)
+plot_lm_4.set_figwidth(12)
 
 plt.scatter(model_leverage, model_norm_residuals, alpha=0.5)
 sns.regplot(model_leverage, model_norm_residuals, 
