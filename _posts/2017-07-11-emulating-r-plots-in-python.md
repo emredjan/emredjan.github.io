@@ -8,9 +8,9 @@ tags:       python R plotting visualization linear-regression
 published:  true
 ---
 
-Recently as a part of my [Summer of Data Science 2017](https://twitter.com/hashtag/SoDS17?src=hash) challenge, I took up the task of reading [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/) cover-to-cover, including all labs and exercises, and converting the R labs and exercises into Python. While I'm still early chapters, but I've learned a lot already. Some commands can be straightforward replicated in Python, some are surprisingly hard to find equivalents in python without using custom functions etc. (not that it's needed, but I'm thinking this as more of a learning opportunity). 
+Recently, as a part of my [Summer of Data Science 2017](https://twitter.com/hashtag/SoDS17?src=hash) challenge, I took up the task of reading [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/) cover-to-cover, including all labs and exercises, and converting the R labs and exercises into Python. While I'm still at early chapters, I've learned a lot already. Some commands can be straightforward replicated in Python, some are surprisingly hard to find equivalents without using custom functions etc. (not that it's needed to have "exact" equivalents, as python also has powerful features unique to it, but I'm thinking this as more of a learning opportunity). 
 
-One of the simple R commands that doesn't have a direct equivalent in Python is `plot()` for linear regression models (actually `plot.lm()`). While python has a vast array of plotting libraries, the more hands-on approach of it necessitates some intervention to replicate R's `plot()`, which creates an group of diagnostic plots (residual, qq, scale-location, leverage) to assess model details when applied to a fitted linear regression model.
+One of the simplest R commands that doesn't have a direct equivalent in Python is `plot()` for linear regression models (wraps `plot.lm()` when fed linear models). While python has a vast array of plotting libraries, the more hands-on approach of it necessitates some intervention to replicate R's `plot()`, which creates a group of diagnostic plots (residual, qq, scale-location, leverage) to assess model performance when applied to a fitted linear regression model.
 
 Let's see the example in R with the *Auto* dataset:
 
@@ -40,7 +40,6 @@ import statsmodels.formula.api as smf
 import statsmodels.api as sm
 from statsmodels.graphics.gofplots import ProbPlot
 from scipy.stats import zscore
-from scipy.stats import rankdata
 
 plt.style.use('seaborn') # pretty matplotlib plots
 plt.rc('font', size=14)
@@ -170,9 +169,9 @@ for r, i in enumerate(abs_norm_resid_top_3):
 
 ### 3. Scale-Location Plot
 
-This is another residual plot, showing the spread that you can use the assess heteroscedasticity.
+This is another residual plot, showing their spread, which you can use to assess heteroscedasticity.
 
-It's just a scatter plot of absolute squared normalized residuals and fitted values, with a lowess regression line. Scatterplot is a standard matplotlib function, lowess line comes from seaborn `regplot`. Top 3 absolute square-rooted residuals are also annotated:
+It's essentially a scatter plot of absolute square-rooted normalized residuals and fitted values, with a lowess regression line. Scatterplot is a standard matplotlib function, lowess line comes from seaborn `regplot`. Top 3 absolute square-rooted normalized residuals are also annotated:
 
 ```python
 plot_lm_3 = plt.figure(3)
@@ -206,7 +205,7 @@ for i in abs_norm_resid_top_3:
 
 This plot shows if any outliers have influence over the regression fit. Anything outside the group and outside "Cook's Distance" lines, may have an influential effect on model fit.
 
-statsmodels has a built-in leverage plot for linear regression, but again, it's not very customizable. Digging around the source of the `statsmodels.graphics` package, it's pretty straightforward to implement it from scratch and customize with standard matplotlib functions. There are three parts to this plot: First is the scatterplot of leverage values (got from statsmodels fitted model using `get_influence().hat_matrix_diag`) vs. standardized residuals. Second one is the lowess regression line for that. And the third and the most tricky part is the Cook's distance lines, which currently I couldn't figure out how to draw in Python. But statsmodels has Cook's distance already calculated, so we can use that to annotate top 3 influencers on the plot:
+statsmodels has a built-in leverage plot for linear regression, but again, it's not very customizable. Digging around the source of the `statsmodels.graphics` package, it's pretty straightforward to implement it from scratch and customize with standard matplotlib functions. There are three parts to this plot: First is the scatterplot of leverage values (got from statsmodels fitted model using `get_influence().hat_matrix_diag`) vs. standardized residuals. Second one is the lowess regression line for that. And the third and the most tricky part is the Cook's distance lines, which I currently couldn't figure out how to draw in Python. But statsmodels has Cook's distance already calculated, so we can use that to annotate top 3 influencers on the plot:
 
 ```python
 plot_lm_4 = plt.figure(4)
