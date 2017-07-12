@@ -12,10 +12,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 import statsmodels.formula.api as smf
-import statsmodels.api as sm
 from statsmodels.graphics.gofplots import ProbPlot
-from scipy.stats import zscore
-from scipy.stats import rankdata
 
 plt.style.use('seaborn') # pretty matplotlib plots
 plt.rc('font', size=14)
@@ -55,19 +52,13 @@ Calculations required for some of the plots:
 
 ```python
 # fitted values (need a constant term for intercept)
-y_pred = model_fit.predict(sm.add_constant(auto[['cylinders', 
-                                               'displacement', 
-                                               'horsepower', 
-                                               'weight', 
-                                               'acceleration', 
-                                               'year', 
-                                               'origin']]))
+model_fitted_y = model_fit.fittedvalues
 
 # model residuals
 model_residuals = model_fit.resid
 
 # normalized residuals
-model_norm_residuals = zscore(model_fit.resid)
+model_norm_residuals = model_fit.get_influence().resid_studentized_internal
 
 # absolute squared normalized residuals
 model_norm_residuals_abs_sqrt = np.sqrt(np.abs(model_norm_residuals))
@@ -96,7 +87,7 @@ plot_lm_1 = plt.figure(1)
 plot_lm_1.set_figheight(8)
 plot_lm_1.set_figwidth(12)
 
-plot_lm_1.axes[0] = sns.residplot(y_pred, 'mpg', data=auto, 
+plot_lm_1.axes[0] = sns.residplot(model_fitted_y, 'mpg', data=auto, 
                           lowess=True, 
                           scatter_kws={'alpha': 0.5}, 
                           line_kws={'color': 'red', 'lw': 1, 'alpha': 0.8})
@@ -112,7 +103,7 @@ abs_resid_top_3 = abs_resid[:3]
 
 for i in abs_resid_top_3.index:
     plot_lm_1.axes[0].annotate(i, 
-                               xy=(y_pred[i], 
+                               xy=(model_fitted_y[i], 
                                    model_residuals[i]));
 ```
 
@@ -154,9 +145,9 @@ for r, i in enumerate(abs_norm_resid_top_3):
 
 ### 3. Scale-Location Plot
 
-This is another residual plot, showing the spread that you can use the assess heteroscedasticity.
+This is another residual plot, showing their spread, which you can use to assess heteroscedasticity.
 
-It's just a scatter plot of absolute squared normalized residuals and fitted values, with a lowess regression line. Scatterplot is a standard matplotlib function, lowess line comes from seaborn `regplot`. Top 3 absolute square-rooted residuals are also annotated:
+It's essentially a scatter plot of absolute square-rooted normalized residuals and fitted values, with a lowess regression line. Scatterplot is a standard matplotlib function, lowess line comes from seaborn `regplot`. Top 3 absolute square-rooted normalized residuals are also annotated:
 
 
 ```python
@@ -164,8 +155,8 @@ plot_lm_3 = plt.figure(3)
 plot_lm_3.set_figheight(8)
 plot_lm_3.set_figwidth(12)
 
-plt.scatter(y_pred, model_norm_residuals_abs_sqrt, alpha=0.5)
-sns.regplot(y_pred, model_norm_residuals_abs_sqrt, 
+plt.scatter(model_fitted_y, model_norm_residuals_abs_sqrt, alpha=0.5)
+sns.regplot(model_fitted_y, model_norm_residuals_abs_sqrt, 
             scatter=False, 
             ci=False, 
             lowess=True,
@@ -181,7 +172,7 @@ abs_sq_norm_resid_top_3 = abs_sq_norm_resid[:3]
 
 for i in abs_norm_resid_top_3:
     plot_lm_3.axes[0].annotate(i, 
-                               xy=(y_pred[i], 
+                               xy=(model_fitted_y[i], 
                                    model_norm_residuals_abs_sqrt[i]));
 ```
 
@@ -193,7 +184,10 @@ for i in abs_norm_resid_top_3:
 
 This plot shows if any outliers have influence over the regression fit. Anything outside the group and outside "Cook's Distance" lines, may have an influential effect on model fit.
 
-statsmodels has a built-in leverage plot for linear regression, but again, it's not very customizable. Digging around the source of the `statsmodels.graphics` package, it's pretty straightforward to implement it from scratch and customize with standard matplotlib functions. There are three parts to this plot: First is the scatterplot of leverage values (got from statsmodels fitted model using `get_influence().hat_matrix_diag`) vs. standardized residuals. Second one is the lowess regression line for that. And the third and the most tricky part is the Cook's distance lines, which currently I couldn't figure out how to draw in Python. But statsmodels has Cook's distance already calculated, so we can use that to annotate top 3 influencers on the plot:
+statsmodels has a built-in leverage plot for linear regression, but again, it's not very customizable. Digging around the source of the `statsmodels.graphics` package, it's pretty straightforward to implement it from scratch and customize with standard matplotlib functions. There are three parts to this plot: First is the scatterplot of leverage values (got from statsmodels fitted model using `get_influence().hat_matrix_diag`) vs. standardized residuals. Second one is the lowess regression line for that. And the third and the most tricky part is the Cook's distance lines, which I currently couldn't figure out how to draw in Python. But statsmodels has Cook's distance already calculated, so we can use that to annotate top 3 influencers on the plot:
+
+**Update**: I *think* I figured out how to draw Cook's distance ($D_i$) contours for $D_i=0.5$ and $D_i=1$
+The trick was rearranging the formula $p{D_i} = r_i^2 h_i/(1-h_i)$ to plot the lines at 0.5 and 1.
 
 
 ```python
@@ -220,7 +214,24 @@ leverage_top_3 = np.flip(np.argsort(model_cooks), 0)[:3]
 for i in leverage_top_3:
     plot_lm_4.axes[0].annotate(i, 
                                xy=(model_leverage[i], 
-                                   model_norm_residuals[i]));
+                                   model_norm_residuals[i]))
+    
+# shenanigans for cook's distance contours
+def graph(formula, x_range, label=None):
+    x = x_range
+    y = formula(x)
+    plt.plot(x, y, label=label, lw=1, ls='--', color='red')
+
+p = len(model_fit.params) # number of model parameters
+
+graph(lambda x: np.sqrt((0.5 * p * (1 - x)) / x), 
+      np.linspace(0.001, 0.200, 50), 
+      'Cook\'s distance') # 0.5 line
+
+graph(lambda x: np.sqrt((1 * p * (1 - x)) / x), 
+      np.linspace(0.001, 0.200, 50)) # 1 line
+
+plt.legend(loc='upper right');
 ```
 
 
