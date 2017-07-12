@@ -209,8 +209,8 @@ This plot shows if any outliers have influence over the regression fit. Anything
 
 statsmodels has a built-in leverage plot for linear regression, but again, it's not very customizable. Digging around the source of the `statsmodels.graphics` package, it's pretty straightforward to implement it from scratch and customize with standard matplotlib functions. There are three parts to this plot: First is the scatterplot of leverage values (got from statsmodels fitted model using `get_influence().hat_matrix_diag`) vs. standardized residuals. Second one is the lowess regression line for that. And the third and the most tricky part is the Cook's distance lines, which I currently couldn't figure out how to draw in Python. But statsmodels has Cook's distance already calculated, so we can use that to annotate top 3 influencers on the plot:
 
-**Update**: I *think* I figured out how to draw Cook's distance ($D_i$) contours for $D_i=0.5$ and $D_i=1$
-The trick was rearranging the formula $p{D_i} = r_i^2 h_i/(1-h_i)$ to plot the lines at 0.5 and 1.
+**Update**: I *think* I figured out how to draw Cook's distance (D) contours for D = 0.5 and D = 1.
+The trick was rearranging the formula to plot the lines at 0.5 and 1.
 
 
 ```python
