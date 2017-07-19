@@ -55,7 +55,7 @@ plt.plot(x, y);
 ![png]({{ site.baseurl }}/code/plot_normal_files/plot_normal_6_0.png)
 
 
-Which is fine and dandy, but it gets quite cumbersome to write those formulas from scratch using `numpy` and `scipy` functions from scratch for every distribution we want. Some are even really hard to implement, take for example the cumulative distribution function (cdf) for the standard normal distribution:
+Which is fine and dandy, but it gets quite cumbersome to write those formulas from scratch using `numpy` and `scipy` functions for every distribution we want. Some are even really hard to implement, take for example the cumulative distribution function (cdf) for the standard normal distribution:
 
 $
 \Phi(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty }^{x}e^{-t^{2}/2}\,{\rm {d}}t
