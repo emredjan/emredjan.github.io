@@ -5,7 +5,7 @@ date:       2017-08-05 20:20:00
 summary:    Impressions and memories after a beautiful week in Rimini in EuroPython 2017
 categories: blog
 tags:       python europython conference
-published:  false
+published:  true
 ---
 
 It's over. For 2017 that is. One magical week in Rimini came to an end with the closing talks of [EuroPython 2017](https://ep2017.europython.eu/en) conference. This was my first truly technical no-nonsense conference, and I appreciated the change of scenery after all the business-enterprise conferences with all the buzzwords and PRs disguised as talks. You can be sure I'll be coming back for 2018, but I'll also try to attend other ones like [PyData](https://pydata.org/), [PyCon](https://www.pycon.org/), and others.
