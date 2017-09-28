@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/emredjan
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://emredjan.github.io
+  * I am emredjan (https://keybase.io/emredjan) on keybase.
+  * I have a public key with fingerprint 056A 49EF C2DA 4C26 33D7  23E4 25C7 6913 14DC 1EDD
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101374c391c672e9651e0a2756820814c828e7f980fbba94fc77e9ec58e7a2612140a",
+      "fingerprint": "056a49efc2da4c2633d723e425c7691314dc1edd",
+      "host": "keybase.io",
+      "key_id": "25c7691314dc1edd",
+      "kid": "0101374c391c672e9651e0a2756820814c828e7f980fbba94fc77e9ec58e7a2612140a",
+      "uid": "5be2b718c7043c766bab848a757d9019",
+      "username": "emredjan"
+    },
+    "service": {
+      "hostname": "emredjan.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1506617469,
+  "expire_in": 157680000,
+  "prev": "0ae11d3175793ebb43f384938c7055f382a40abea4a30fda39381d1e272e3b0a",
+  "seqno": 16,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.74
+Comment: https://keybase.io/crypto
+
+yMIpAnicrVJbSBRRGB7NkoSk+430YUAz0W3O3M7MUhahaHgpogumtZ0zc3YdL7Pr
+7GguZpFlRSVClF0eIoysLayQKLpSKUGEDxFdXrSQNcqKMrMrWWe2eokeOy/nnP//
+vu///4+/e8IYJiHm8HBm7HfPtf6Ye7eO1jDFPWkN9Sz26yHWXc9WkOhFKnUStD0V
+hs66WQ5wQICiJqhAkyFPVFkChEM8lGSF5xQgagqvEOhVFc6LMVJFrwYhUYkm0Sji
+ZcADkUNsBus1TB+xApZh2o6sJCNRJV6N15Go8bIg6JAXiMhLGpRVIABR1wDRdUos
+8wcdBm0OoyBxGX4aox9PtL1/4P9z3zVROQkTHkOgaJATBVpSxggrooKgBHWVA6oD
+DBLLRFWEokmVRfRyZLINGSyN1hoacYx1JvkL4fIZdlkN/jVVwPLbfs1fSfNlth0I
+uh2+HQo4hI0Ee35LebBh6tRNyqglVtDwm6wbUKRmG442kDhZBlCU1QyW1AUMi3gM
+ByFBWeHoceqQWsciRADQBUBnUAWCsSh4BUVUBWdISaJvHlELMEEiEjivjgSaAjog
+PLVTwFFzgqTa9FNtmfaJfFQzaPhMZNdYhG24fbM0jolJYMaNjXXWjEkYP/HP8rle
+xI+mNqeufv4xPBeGZj+cvGVmIfMGtuUtT+zI79Vje5PnJG0qeWonPliHs4e69yv7
+erIH018One2+0NF4d8zB3LLEhhl7O+dNyzt/KZDW1VowYOxK1pIH+2a/u2MXb8/q
+yTzna1tctO1D07OuWQOZPR+PLW3NXfhoVuRMR2TJVyPyftHKT0MXy93WglHUvoov
+vLFzbErB5vy6x29PvF5y4Ejf8fhmz5d+Pmu6O7Jl0Y6Ujlfh4bactYMrGpPCTPnl
+kbhvOVdTfnTerx7ZM7/ElR6/O3zS/Dx1TaldtIxp7zsxJbal+Dpm8jfC0Okrp/DW
+L9WXmyaVZj5xr1daRnpDaeePHcrYAH8ChSNB1A==
+=N3QL
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/emredjan
+
+==================================================================
