@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Python Wrapper for GLEIF Public API
-date:       2018-04-14 11:20:00
+date:       2018-04-13 11:20:00
 summary:    A small wrapper I wrote in python for GLEIF's public LEI lookup API
 categories: blog
 tags:       python api wrapper lei gleif
@@ -10,7 +10,7 @@ published:  true
 
 This is a small thing that I started as a necessity for work: We needed to get [LEI](https://en.wikipedia.org/wiki/Legal_Entity_Identifier) (Legal Entity Identifier) registration information for our customers, and using GLEIF's (Global LEI Foundation) public API to query things and using python was the convenient at that time. Thinking of reusability, I structured it as a module, covering most of our use cases. Code is now in github, maybe it helps others that need an easier way to query LEI numbers.
 
-To access, go to https://github.com/emredjan/leipy and download the repository (in fact you only need the file `leipy/gleif.py`). You will need `requests` and `dateutil` libraries, and optionally `pandas` if you want DataFrame output of results, which should all be included with a standard anaconda installation.
+To access, go to [https://github.com/emredjan/leipy](https://github.com/emredjan/leipy) and download the repository (in fact you only need the file `leipy/gleif.py`). You will need `requests` and `dateutil` libraries, and optionally `pandas` if you want DataFrame output of results, which should all be included with a standard anaconda installation.
 
 You can use it as:
 
