@@ -8,7 +8,7 @@ tags:       python api wrapper lei gleif
 published:  true
 ---
 
-This is a small thing that I started as a necessity for work: We needed to get [LEI](https://en.wikipedia.org/wiki/Legal_Entity_Identifier) (Legal Entity Identifier) registration information for our customers, and using GLEIF's (Global LEI Foundation) public API to query things and using python was the convenient at that time. Thinking of reusability, I structured it as a module, covering most of our use cases. Code is now in github, maybe it helps others that need an easier way to query LEI numbers.
+This is a small thing that I started as a necessity for work: We needed to get [LEI](https://en.wikipedia.org/wiki/Legal_Entity_Identifier) (Legal Entity Identifier) registration information for our customers, and using GLEIF's (Global LEI Foundation) public API to query things and using python was convenient at that time. Thinking of reusability, I structured it as a module, covering most of our use cases. Code is now in github, maybe it helps others that need an easier way to query LEI numbers.
 
 To access, go to [https://github.com/emredjan/leipy](https://github.com/emredjan/leipy) and download the repository (in fact you only need the file `leipy/gleif.py`). You will need `requests` and `dateutil` libraries, and optionally `pandas` if you want DataFrame output of results, which should all be included with a standard anaconda installation.
 

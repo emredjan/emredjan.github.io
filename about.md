@@ -7,7 +7,7 @@ tags: about
 
 <img src="{{ site.baseurl }}/images/me.jpg" class="avatar2">
 
-I am Emre, a part-time [MBA Big Data & Business Analytics](http://mbabigdata.nl) student at UvA and a full-time data & reporting specialist.
+I am Emre, a part-time [MBA Big Data & Business Analytics](http://mbabigdata.nl) student at UvA and a full-time business intelligence specialist.
 I decided to start this blog as I believe it's the best way to share my journey as I learn and try to become a better data scientist.
 
 In the spring of 2016, I realized my passion and my career lies in data & analytics and I needed to take a step further. 
