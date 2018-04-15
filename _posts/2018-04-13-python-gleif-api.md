@@ -20,8 +20,8 @@ from leipy import GLEIF
 gleif = GLEIF(api_version='v1')
 
 raw_output, results, results_df = gleif.request(
-	['HWUPKR0MPOU8FGXBT394','7ZW8QJWVPR4P1J1KQY45'],
-	return_dataframe=True
+  ['HWUPKR0MPOU8FGXBT394','7ZW8QJWVPR4P1J1KQY45'],
+  return_dataframe=True
 )
 ```
 
@@ -29,6 +29,7 @@ GLEIF API has a limit of 200 LEIs per request, my wrapper handles that for you, 
 It returns the raw json output from the API, a results class and optionally a pandas DataFrame.
 
 Raw json (as a list of dicts), which you can further process as you please, looks like this:
+
 ```python
 [{'LEI': {'$': 'HWUPKR0MPOU8FGXBT394'},
   'Entity': {'LegalName': {'$': 'Apple Inc.'},
@@ -101,10 +102,8 @@ And if you opt for a DataFrame, the results will be conveniently flattened and r
 
 | |country_hq|country_legal|date_initial_reg|date_last_updated|date_next_renewal|legal_name|lei|lei_reg_status|status|
 |-|----------|-------------|----------------|-----------------|-----------------|----------|---|--------------|------|
-|0	|US	|US	|2012-06-06 15:53:00+00:00	|2017-12-12 21:19:00+00:00	|2018-12-13 00:31:00+00:00	|Apple Inc.	|HWUPKR0MPOU8FGXBT394	|ISSUED	|ACTIVE|
-|1	|US	|US	|2012-06-06 15:52:00+00:00	|2018-03-28 17:00:00+00:00	|2018-08-17 18:10:00+00:00	|Google LLC	|7ZW8QJWVPR4P1J1KQY45	|ISSUED	|ACTIVE|
-
-
+|0  |US |US |2012-06-06 15:53:00+00:00  |2017-12-12 21:19:00+00:00  |2018-12-13 00:31:00+00:00  |Apple Inc. |HWUPKR0MPOU8FGXBT394 |ISSUED |ACTIVE|
+|1  |US |US |2012-06-06 15:52:00+00:00  |2018-03-28 17:00:00+00:00  |2018-08-17 18:10:00+00:00  |Google LLC |7ZW8QJWVPR4P1J1KQY45 |ISSUED |ACTIVE|
 
 As I said, this is more suited to our use case, and it's like a hobby project for me. If you need a more generic solution for python check out [pygleif](https://github.com/ggravlingen/pygleif), or you can always go for the [GLEIF REST API](https://www.gleif.org/en/lei-data/gleif-lei-look-up-api/access-the-api) itself.
 
