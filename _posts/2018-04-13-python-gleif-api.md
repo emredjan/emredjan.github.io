@@ -2,13 +2,13 @@
 layout:     post
 title:      Python Wrapper for GLEIF Public API
 date:       2018-04-13 11:20:00
-summary:    A small wrapper I wrote in python for GLEIF's public LEI lookup API
+summary:    A small wrapper I wrote in Python for GLEIF's public LEI lookup API
 categories: blog
 tags:       python api wrapper lei gleif
 published:  true
 ---
 
-This is a small thing that I started as a necessity for work: We needed to get [LEI](https://en.wikipedia.org/wiki/Legal_Entity_Identifier) (Legal Entity Identifier) registration information for our customers, and using GLEIF's (Global LEI Foundation) public API to query things and using python was convenient at that time. Thinking of reusability, I structured it as a module, covering most of our use cases. Code is now in github, maybe it helps others that need an easier way to query LEI numbers.
+This is a small thing that I started as a necessity for work: We needed to get [LEI](https://en.wikipedia.org/wiki/Legal_Entity_Identifier) (Legal Entity Identifier) registration information for our customers, and using GLEIF's (Global LEI Foundation) public API to query things with Python was convenient at that time. Thinking of reusability, I structured it as a module, covering most of our use cases. Code is now in github, maybe it helps others that need an easier way to query LEI numbers.
 
 To access, go to [https://github.com/emredjan/leipy](https://github.com/emredjan/leipy) and download the repository (in fact you only need the file `leipy/gleif.py`). You will need `requests` and `dateutil` libraries, and optionally `pandas` if you want DataFrame output of results, which should all be included with a standard anaconda installation.
 
@@ -20,8 +20,8 @@ from leipy import GLEIF
 gleif = GLEIF(api_version='v1')
 
 raw_output, results, results_df = gleif.request(
-	['HWUPKR0MPOU8FGXBT394','7ZW8QJWVPR4P1J1KQY45'],
-	return_dataframe=True
+  ['HWUPKR0MPOU8FGXBT394','7ZW8QJWVPR4P1J1KQY45'],
+  return_dataframe=True
 )
 ```
 
@@ -29,6 +29,7 @@ GLEIF API has a limit of 200 LEIs per request, my wrapper handles that for you, 
 It returns the raw json output from the API, a results class and optionally a pandas DataFrame.
 
 Raw json (as a list of dicts), which you can further process as you please, looks like this:
+
 ```python
 [{'LEI': {'$': 'HWUPKR0MPOU8FGXBT394'},
   'Entity': {'LegalName': {'$': 'Apple Inc.'},
@@ -98,6 +99,7 @@ And if you opt for a DataFrame, the results will be conveniently flattened and r
 ```python
 >>>results_df
 ```
+
 ![png]({{ site.baseurl }}/images/gleif_df.png)
 
 As I said, this is more suited to our use case, and it's like a hobby project for me. If you need a more generic solution for python check out [pygleif](https://github.com/ggravlingen/pygleif), or you can always go for the [GLEIF REST API](https://www.gleif.org/en/lei-data/gleif-lei-look-up-api/access-the-api) itself.
