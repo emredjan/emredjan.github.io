@@ -35,6 +35,9 @@
     </script>
     {% endif %}
 
+    <!-- Google AdSense -->
+    {% if site.google_ad_client %}{% include google_adsense.html %}{% endif %}
+    
     <!-- Verifications -->
     {% if site.google_verification %}
       <meta name="google-site-verification" content="{{ site.google_verification }}" />
