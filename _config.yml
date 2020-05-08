@@ -16,6 +16,7 @@ google_analytics:    UA-97016347-1
 google_tag_manager:
 # Bing services
 bing_verification:
+google_ad_client: ca-pub-1623870008858846
 
 # Optional features
 animated:             true
