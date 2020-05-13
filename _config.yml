@@ -1,8 +1,8 @@
 # Site settings
-title:       A Journey in Data
+title:       A Journey in Data & Music
 email:       emredjan@gmail.com
 author:      Emre Can
-description: "A data science journal by Emre Can."
+description: "A data, music and everything in between journal by Emre Can."
 baseurl:     ""
 #url:         "http://192.168.178.241:4000/"
 url:         "http://emredjan.github.io/"
