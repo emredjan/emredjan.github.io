@@ -52,6 +52,7 @@ medium_id:
 bitcoin_url:
 paypal_url:
 flattr_button:
+formspree_endpoint:   xbjppebk
 
 # Post sharing icons
 show_sharing_icons: true
