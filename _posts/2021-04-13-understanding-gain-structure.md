@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Understanding Gain Structure & Staging
+title:      Understanding Gain Staging & Gain Structure
 date:       2021-04-13 17:20:00
 summary:    How to achieve optimum levels in any audio system with proper gain staging
 categories: blog
